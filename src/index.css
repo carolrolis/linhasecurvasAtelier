@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: "Baby";
+  src: url(./fonts/OoohBaby.ttf);
+}
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-baby: "Baby";
+  --color-bege: #faf3e5;
+  --color-gold: #f4d06f;
+  --color-lightPink: #df789c;
+  --color-transparentPink: rgba(223, 120, 256, 50%);
+  --color-darkPink: #9c125c;
+  --color-lightBlue: #a6c5e5;
+  --color-darkBlue: #2c3e50;
+}
+
+body {
+  background-color: var(--color-bege);
+  color: var(--color-darkPink);
+  font-family: var(--font-poppins);
+  overflow-x: hidden;
+}
+
+img {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9c125c;
+  border-radius: 10px;
+}
+
+.nav-link {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  border-bottom: 1.5px solid var(--color-lightPink);
+  display: block;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 300ms ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.searchbar::after {
+  border-bottom: 1.5px solid var(--color-lightPink);
+  display: block;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 300ms ease-in-out;
+}
+
+.searchbar:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.searchbar-input {
+  width: 8rem;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.searchbar-input:focus {
+  background-color: rgba(255, 255, 255, 0.404);
+  border-bottom: 0.5px solid var(--color-lightPink);
+}
+
+.blur-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(250, 243, 229, 1),
+    rgba(255, 255, 255, 0) 10%,
+    rgba(255, 255, 255, 0) 90%,
+    rgba(250, 243, 229, 1)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .MobileMenu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    border-radius: 1rem;
+    position: absolute;
+    top: 75%;
+    right: -130%;
+    margin: 0;
+    z-index: -1;
+    transition: all 400ms ease-in-out;
+  }
+
+  .MobileMenu.active {
+    right: -30%;
+    z-index: 3;
+  }
+}
