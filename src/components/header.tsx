@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import bars from "../images/icons/bars.svg";
 import cross from "../images/icons/cross.svg";
 import Logo from "../images/logos/logo";
