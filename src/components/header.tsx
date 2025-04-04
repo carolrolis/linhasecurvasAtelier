@@ -1,7 +1,7 @@
 import { useState } from "react";
-import bars from "../images/icons/bars.svg";
-import cross from "../images/icons/cross.svg";
-import Logo from "../images/logos/logo";
+import bars from "../assets/images/icons/bars.svg";
+import cross from "../assets//images/icons/cross.svg";
+import logo from "../assets/images/logos/logo.svg";
 
 const NavItems = [
   {
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
     >
       <nav className="w-full flex items-center justify-between">
         <div className="max-w-2/11 min-w-55 cursor-pointer px-4 py-2">
-          <Logo />
+          <img alt="Linhas & Curvas" src={logo}/>
         </div>
         <div className="mobile-menu-icon md:hidden mr-5" onClick={handleClick}>
           <img
@@ -55,7 +55,6 @@ const Header: React.FC = () => {
           `}
         >
           {NavItems.map((Item, index) => {
-            console.log(Item);
             return (
               <li key={index} className={Item.className}>
                 {Item.title}

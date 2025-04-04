@@ -2,7 +2,7 @@ export default function Welcome() {
   return (
     <section
       id="welcome"
-      className="w-full max-h-fit bg-[url(./images/homeBg2.jpg)] sm:bg-[url(./images/homeBg2.jpg)] md:bg-[url(./images/homeBg.jpg)] bg-right bg-no-repeat bg-cover"
+      className="w-full max-h-fit bg-[url(./assets/images/homeBg2.jpg)] sm:bg-[url(./assets/images/homeBg2.jpg)] md:bg-[url(./assets/images/homeBg.jpg)] bg-right bg-no-repeat bg-cover"
     >
       <div className="pt-30 pb-10 pl-15 max-w-9/10">
         <h1 className="text-7xl font-baby leading-20">

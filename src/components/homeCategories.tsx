@@ -1,4 +1,22 @@
 import HomeCarousel from "../components/homeCarousel";
+import BercoCarouselImg from "../assets/images/berco/berco1.png";
+import PortadocumentosCarouselImg from "../assets/images/portadocumentos/porta3.png";
+import BonecasCarouselImg from "../assets/images/bonecas/boneca1.png";
+import KitsmaternidadeCarouselImg from "../assets/images/kitsmaternidade/kitmaternidade1.png";
+import BolsasCarouselImg from "../assets/images/bolsas/bolsa1.png";
+import KitsbatismoCarouselImg from "../assets/images/kitsbatismo/kitbatismo3.png";
+import ToalhasCarouselImg from "../assets/images/toalhas/toalha8.png";
+import FraldasCarouselImg from "../assets/images/fraldas/fralda1.png";
+import AlmofadasCarouselImg from "../assets/images/almofadas/almofada1.png";
+import TrocadoresCarouselImg from "../assets/images/trocadores/trocador2.png";
+import NinhosCarouselImg from "../assets/images/ninhos/ninho5.png";
+import LembrancinhasCarouselImg from "../assets/images/lembrancinhas/lembrancinha1.png";
+import OrganizadoresCarouselImg from "../assets/images/organizadores/organizador3.png";
+import CalcinhasCarouselImg from "../assets/images/calcinhas/calcinha4.png";
+import BastidoresCarouselImg from "../assets/images/bastidores/bastidor1.png";
+import CapasmaquinaCarouselImg from "../assets/images/capasmaquina/capamaquina1.png";
+import LarCarouselImg from "../assets/images/lar/cozinha1.png";
+
 
 interface Category {
   id: number;
@@ -11,87 +29,87 @@ const categories: Category[] = [
   {
     id: 1,
     name: "Berços",
-    image: "src/images/berco/berco1.png",
+    image: BercoCarouselImg,
   },
   {
     id: 2,
     name: "Porta-Documentos",
-    image: "src/images/portadocumentos/porta3.png",
+    image: PortadocumentosCarouselImg,
   },
   {
     id: 3,
     name: "Bonecas",
-    image: "src/images/bonecas/boneca1.png",
+    image: BonecasCarouselImg,
   },
   {
     id: 4,
     name: "Kits Maternidade",
-    image: "src/images/kitmaternidade/kitmaternidade1.png",
+    image: KitsmaternidadeCarouselImg,
   },
   {
     id: 5,
     name: "Bolsas",
-    image: "src/images/bolsas/bolsa1.png",
+    image: BolsasCarouselImg,
   },
   {
     id: 6,
     name: "Kits Batismo",
-    image: "src/images/kitbatismo/kitbatismo3.png",
+    image: KitsbatismoCarouselImg,
   },
   {
     id: 7,
     name: "Toalhas",
-    image: "src/images/toalhas/toalha8.png",
+    image: ToalhasCarouselImg,
   },
   {
     id: 8,
     name: "Fraldas",
-    image: "src/images/fraldas/fralda1.png",
+    image: FraldasCarouselImg,
   },
   {
     id: 9,
     name: "Almofadas",
-    image: "src/images/almofadas/almofada1.png",
+    image: AlmofadasCarouselImg,
   },
   {
     id: 10,
     name: "Trocadores",
-    image: "src/images/trocadores/trocador2.png",
+    image: TrocadoresCarouselImg,
   },
   {
     id: 11,
     name: "Ninhos",
-    image: "src/images/ninho/ninho1.png",
+    image: NinhosCarouselImg,
   },
   {
     id: 12,
     name: "Lembrancinhas",
-    image: "src/images/lembrancinhas/lembrancinha4.png",
+    image: LembrancinhasCarouselImg,
   },
   {
     id: 13,
     name: "Organizadores",
-    image: "src/images/organizadores/organizador3.png",
+    image: OrganizadoresCarouselImg,
   },
   {
     id: 14,
     name: "Calcinhas",
-    image: "src/images/calcinhas/calcinha5.png",
+    image: CalcinhasCarouselImg,
   },
   {
     id: 15,
     name: "Bastidores",
-    image: "src/images/bastidores/bastidor1.png",
+    image: BastidoresCarouselImg,
   },
   {
     id: 16,
-    name: "Capas para Máquinas",
-    image: "src/images/capamaquina/capamaquina1.png",
+    name: "Capas para Máquina",
+    image: CapasmaquinaCarouselImg,
   },
   {
     id: 17,
     name: "Para o Lar",
-    image: "src/images/lar/cozinha1.png",
+    image: LarCarouselImg,
   },
 ];
 
