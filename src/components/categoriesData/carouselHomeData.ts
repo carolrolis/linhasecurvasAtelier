@@ -1,0 +1,1 @@
+import Berco1 from "../../assets/images/bercos/berco1.png"

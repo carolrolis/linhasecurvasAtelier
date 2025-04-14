@@ -1,0 +1,48 @@
+import BercoData from "./bercosData";
+import PortaDocData from "./portaDocData";
+import BonecasData from "./bonecasData";
+import KitsMaternidadeData from "./kitsMaternidadeData";
+import BolsasData from "./bolsasData";
+import KitsBatismoData from "./kitsBatismoData";
+import ToalhasData from "./toalhasData";
+import FraldasData from "./fraldasData";
+import AlmofadasData from "./almofadasData";
+import TrocadoresData from "./trocadoresData";
+import NinhosData from "./ninhosData";
+import LembrancinhasData from "./lembrancinhasData";
+import OrganizadoresData from "./organizadoresData";
+import CalcinhasData from "./calcinhasData";
+import BastidoresData from "./bastidoresData";
+import CapasMaquinaData from "./capasMaquinaData";
+import LarData from "./larData";
+
+export const categoriesData = [
+  BercoData,
+  PortaDocData,
+  BonecasData,
+  KitsMaternidadeData,
+  BolsasData,
+  KitsBatismoData,
+  ToalhasData,
+  FraldasData,
+  AlmofadasData,
+  TrocadoresData,
+  NinhosData,
+  LembrancinhasData,
+  OrganizadoresData,
+  CalcinhasData,
+  BastidoresData,
+  CapasMaquinaData,
+  LarData
+];
+
+export const carouselCategoriesData = [
+  BercoData,
+  PortaDocData,
+  BonecasData,
+  KitsMaternidadeData,
+  BolsasData,
+  KitsBatismoData,
+  ToalhasData,
+  FraldasData,
+];

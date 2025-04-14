@@ -1,14 +1,14 @@
 import Header from "../components/header";
-import HomeCategories from "../components/homeCategories";
-import Welcome from "../components/homeWelcome";
+import HomeCategories from "../components/categoriesHome";
+import Welcome from "../components/welcomeHome";
 
 const Home: React.FC = () => {
   return (
-    <div id="home">
+    <main id="home">
       <Header />
       <Welcome/>
       <HomeCategories />
-    </div>
+    </main>
   );
 };
 

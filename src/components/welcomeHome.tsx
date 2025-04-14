@@ -2,7 +2,7 @@ export default function Welcome() {
   return (
     <section
       id="welcome"
-      className="w-full max-h-fit bg-[url(./assets/images/homeBg2.jpg)] sm:bg-[url(./assets/images/homeBg2.jpg)] md:bg-[url(./assets/images/homeBg.jpg)] bg-right bg-no-repeat bg-cover"
+      className="w-full max-h-fit bg-[url(./assets/images/homeBg2.png)] sm:bg-[url(./assets/images/homeBg2.png)] md:bg-[url(./assets/images/homeBg.png)] bg-right bg-no-repeat bg-cover"
     >
       <div className="pt-30 pb-10 pl-15 max-w-9/10">
         <h1 className="text-7xl font-baby leading-20">
@@ -19,8 +19,8 @@ export default function Welcome() {
           <br />
           enxovais, artigos de cozinha e demais peças por encomenda!
         </p>
-        <button className="cursor-pointer hover:scale-110 transform duration-300 mt-4 py-3 px-4 text-xl bg-linear-to-r from-white to-pink-200 border-2 rounded-4xl shadow-lg">
-          Conheça a loja
+        <button className="cursor-pointer hover:scale-110 transform duration-300 mt-4 py-3 px-4 text-xl font-medium bg-linear-to-r from-white to-pink-200 border-2 rounded-4xl shadow-lg">
+          Faça sua encomenda!
         </button>
       </div>
     </section>

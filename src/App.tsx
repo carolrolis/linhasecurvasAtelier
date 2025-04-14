@@ -1,17 +1,40 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Sobre from "./pages/sobre";
 import Loading from "./pages/loading";
+import FirstLoading from "./pages/firstLoading";
 
 const Home = lazy(() => import("./pages/home"));
+const Sobre = lazy(() => import("./pages/sobre"));
+const Category = lazy(() => import("./pages/category"));
+const NotFound = lazy(() => import("./pages/notfound"));
 
 export default function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <Suspense fallback={<Loading/>}>
-      <Routes>
-        <Route path="/sobre" element={<Sobre/>} />
-        <Route path="/" element={<Home/>} />
-      </Routes>
-    </Suspense>
+    <>
+      {!isLoaded && (
+        <FirstLoading
+          onComplete={() => {
+            setIsLoaded(true);
+          }}
+        />
+      )}
+
+      <div
+        className={`min-h-screen transition-opacity duration-700 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/category/:categoryID" element={<Category />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </>
   );
 }

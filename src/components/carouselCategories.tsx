@@ -50,7 +50,6 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
   // Update scroll based on mouse movement.
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!isDraggingRef.current || !containerRef.current) return;
-    // e.preventDefault();
     const dx = e.pageX - dragStartPosition.current.x;
     containerRef.current.scrollLeft = dragStartPosition.current.scrollLeft - dx;
 
@@ -102,35 +101,41 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
     }
   };
 
-  // Container and Cell styles
-  const containerClasses = "w-full overflow-x-auto no-scrollbar";
-  const cellClasses =
-    "flex-shrink-0 w-62 scroll-snap-center bg-white rounded-lg shadow-lg overflow-hidden";
-
   return (
     <div className="relative w-full px-2">
       <div
         ref={containerRef}
-        className={`${containerClasses} flex gap-4 py-6 px-4`}
+        className={"w-full overflow-x-auto no-scrollbar flex gap-4 py-6 px-4"}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        {React.Children.map(children, (child) => (
-          <div
-            className={`${cellClasses} cursor-pointer border-3 border-white hover:scale-105 hover:border-gold transition-transform duration-300`}
-          >
-            {child}
-          </div>
-        ))}
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child)) {
+            const element = child as React.ReactElement<any>;
+            if (element.type === "button") {
+              return child;
+            }
+          }
+
+          return (
+            <div
+              className={
+                "flex-shrink-0 w-62 scroll-snap-center bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer border-3 border-white hover:scale-105 hover:border-gold active:scale-105 active:border-gold transition-transform duration-300"
+              }
+            >
+              {child}
+            </div>
+          );
+        })}
       </div>
 
       {showLeftArrow && (
         <button
           onClick={handlePrevious}
           title="Left"
-          className="group z-2 hidden sm:block cursor-pointer absolute left-2 top-1/2 transform -translate-y-1/2"
+          className="group z-2 hidden sm:block cursor-pointer absolute left-2 top-1/2 transform -translate-y-1/2 transition-transform duration-300"
         >
           <svg
             width="36"
@@ -159,7 +164,7 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         <button
           onClick={handleNext}
           title="Right"
-          className="group z-2 hidden sm:block cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2"
+          className="group z-2 hidden sm:block cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2 transition-transform duration-300"
         >
           <svg
             width="36"
