@@ -1,7 +1,7 @@
 import carouselData from "./categoriesData/carouselData";
 
 import HomeCarousel from "./carouselHome";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const categories = carouselData.map((item) => ({
   id: item.id,
