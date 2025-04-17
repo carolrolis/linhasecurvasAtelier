@@ -2,11 +2,11 @@ import { lazy, Suspense, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loading from "./pages/loading";
 import FirstLoading from "./pages/firstLoading";
-import Catalogo from "./pages/catalogo";
 
 const Home = lazy(() => import("./pages/home"));
 const Sobre = lazy(() => import("./pages/sobre"));
 const Category = lazy(() => import("./pages/category"));
+const Catalogo = lazy(() => import("./pages/catalogo"))
 const NotFound = lazy(() => import("./pages/notfound"));
 
 export default function App() {
