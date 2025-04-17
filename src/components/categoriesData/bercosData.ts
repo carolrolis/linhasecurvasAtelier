@@ -9,14 +9,12 @@ interface BercosProps {
   id: string;
   name: string;
   description?: string;
-  carouselImage: string;
   images: string[];
 }
 
 const BercosData: BercosProps = {
   id: "bercos",
   name: "Berços",
-  carouselImage: Berco1,
   images: [Berco1, Berco2, Berco3, Berco4, Berco5, Berco6],
 }
 

@@ -1,7 +1,8 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loading from "./pages/loading";
 import FirstLoading from "./pages/firstLoading";
+import Catalogo from "./pages/catalogo";
 
 const Home = lazy(() => import("./pages/home"));
 const Sobre = lazy(() => import("./pages/sobre"));
@@ -28,7 +29,8 @@ export default function App() {
       >
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="/category/:categoryID" element={<Category />} />
+            <Route path="/catalogo/:categoryID" element={<Category />} />
+            <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />

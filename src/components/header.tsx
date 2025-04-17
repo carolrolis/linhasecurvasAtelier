@@ -2,25 +2,25 @@ import { useState, useRef, useEffect } from "react";
 import bars from "../assets/images/icons/bars.svg";
 import cross from "../assets//images/icons/cross.svg";
 import logo from "../assets/images/logos/logo.svg";
+import { Link } from "react-router-dom";
 
 const NavItems = [
   {
     title: "Início",
-    url: "#",
     className: "nav-link",
+    navigate: "/",
   },
   {
     title: "Catálogo",
-    url: "#",
     className: "nav-link",
+    navigate: "/catalogo",
   },
   {
     title: "Sobre",
-    url: "#",
     className: "nav-link",
+    navigate: "/sobre",
   },
   {
-    url: "#",
     className: "searchbar",
   },
 ];
@@ -75,17 +75,22 @@ const Header: React.FC = () => {
           `}
         >
           {NavItems.map((Item, index) => {
-            return (
-              <li key={index} className={Item.className}>
-                {Item.title}
-                {Item.className.includes("searchbar") && (
+            if (Item.className.includes("searchbar")) {
+              return (
+                <li key={index} className={Item.className}>
                   <input
                     title="Pesquisar"
                     type="text"
                     placeholder="Pesquisar"
                     className="searchbar-input placeholder:text-darkPink focus:placeholder:text-lightPink"
                   />
-                )}
+                </li>
+              );
+            }
+
+            return (
+              <li key={index} className={Item.className}>
+                <Link to={Item.navigate!}>{Item.title}</Link>
               </li>
             );
           })}

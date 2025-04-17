@@ -1,20 +1,15 @@
-import { carouselCategoriesData } from "./categoriesData/fullData";
+import carouselData from "./categoriesData/carouselData";
 
-import HomeCarousel from "./carouselCategories";
-import { Navigate, useNavigate } from "react-router-dom";
+import HomeCarousel from "./carouselHome";
+import { Link, Navigate } from "react-router-dom";
 
-export const categoriesTeste = carouselCategoriesData.map((item) => ({
+export const categories = carouselData.map((item) => ({
   id: item.id,
   name: item.name,
   image: item.carouselImage,
 }));
 
 const HomeCategories: React.FC = () => {
-  const navigate = useNavigate();
-  const cardClick = (id: string) => {
-    navigate(`/category/${id}`);
-  };
-
   return (
     <div
       id="categories"
@@ -23,36 +18,32 @@ const HomeCategories: React.FC = () => {
       <h1 className="text-2xl font-semibold mb-6 text-center">Categorias</h1>
       <div className="w-9/10 blur-carousel">
         <HomeCarousel>
-          {categoriesTeste.map((category) => (
-            <div
-              key={category.id}
-              className="flex flex-col items-center select-none"
-              onClick={() => {
-                cardClick(category.id);
-              }}
-            >
-              <img
-                src={category.image}
-                alt={category.name}
-                className="w-full h-56 object-cover no-select"
-                loading="lazy"
-              />
-              <h3 className="pt-3 pb-1 text-center text-base font-medium mb-2">
-                {category.name}
-              </h3>
-            </div>
+          {categories.map((category) => (
+            <Link to={`catalogo/${category.id}`}>
+              <div
+                key={category.id}
+                className="flex flex-col items-center select-none"
+              >
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="w-full h-56 object-cover no-select"
+                  loading="lazy"
+                />
+                <h3 className="pt-3 pb-1 text-center text-base font-medium mb-2">
+                  {category.name}
+                </h3>
+              </div>
+            </Link>
           ))}
-          <button
-            type="button"
+          <Link
+            to="/catalogo"
             title="Ver mais"
             className="group max-w-fit max-h-fit self-center pr-18 cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => {
-              <Navigate to ="/catalogo"/>
-            }}
           >
             <svg
-              width="70px"
-              height="70px"
+              width="64px"
+              height="64px"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -73,7 +64,7 @@ const HomeCategories: React.FC = () => {
                 ></path>{" "}
               </g>
             </svg>
-          </button>
+          </Link>
         </HomeCarousel>
       </div>
     </div>

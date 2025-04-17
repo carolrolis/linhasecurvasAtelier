@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import HomeCategories from "../components/categoriesHome";
-import Welcome from "../components/welcomeHome";
+import Welcome from "../components/welcome";
 
 const Home: React.FC = () => {
   return (

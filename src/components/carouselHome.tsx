@@ -17,17 +17,20 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
 }) => {
   // Carousel container - initially null.
   const containerRef = useRef<HTMLDivElement>(null);
-  // Check if the carousel is currently being dragged.
+  // Check if the carousel is currently being dragged - initially false
   const isDraggingRef = useRef<boolean>(false);
-  // Initial mouse and scroll positions when dragging starts.
-  const dragStartPosition = useRef({ x: 0, y: 0, scrollLeft: 0 });
-  // Show a arrow only when there is anything left to be scrolled.
+  // See if whether the user clicked or dragged - initially false
+  const draggedRef = useRef<boolean>(false);
+  // Initial mouse and scroll positions when dragging starts - initially 0
+  const dragStartPosition = useRef({ x: 0, scrollLeft: 0 });
+  // State to show a arrow only when there is anything left to be scrolled.
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
 
   const handleScroll = () => {
     if (!containerRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+    console.log(scrollLeft);
 
     setShowLeftArrow(scrollLeft > 0);
     setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 1);
@@ -35,13 +38,13 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     if (!allowDrag) return;
-    else isDraggingRef.current = true;
+    isDraggingRef.current = true;
+    draggedRef.current = false;
 
     if (containerRef.current) {
       // Stores initial mouse position(x, y) and the container rolling(scrollLeft).
       dragStartPosition.current = {
         x: e.pageX,
-        y: e.pageY,
         scrollLeft: containerRef.current.scrollLeft,
       };
     }
@@ -51,9 +54,15 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!isDraggingRef.current || !containerRef.current) return;
     const dx = e.pageX - dragStartPosition.current.x;
+
+    if (Math.abs(dx) > 10) {
+      draggedRef.current = true;
+    }
+
     containerRef.current.scrollLeft = dragStartPosition.current.scrollLeft - dx;
 
     containerRef.current.scrollBy({
+      // Adjustment effect
       left: dx > 0 ? -150 : 150,
       behavior: "smooth",
     });
@@ -88,6 +97,8 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         left: -containerRef.current.clientWidth * 0.5,
         behavior: "smooth",
       });
+
+      console.log(containerRef.current);
     }
   };
 
@@ -114,7 +125,7 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             const element = child as React.ReactElement<any>;
-            if (element.type === "button") {
+            if (element.props["title"] === "Ver mais") {
               return child;
             }
           }
@@ -124,6 +135,12 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
               className={
                 "flex-shrink-0 w-62 scroll-snap-center bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer border-3 border-white hover:scale-105 hover:border-gold active:scale-105 active:border-gold transition-transform duration-300"
               }
+              onClickCapture={(e) => {
+                if (draggedRef.current) {
+                  e.stopPropagation();
+                  e.preventDefault();
+                }
+              }}
             >
               {child}
             </div>

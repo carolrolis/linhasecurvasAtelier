@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Welcome() {
   return (
     <section
@@ -19,9 +21,11 @@ export default function Welcome() {
           <br />
           enxovais, artigos de cozinha e demais peças por encomenda!
         </p>
-        <button className="cursor-pointer hover:scale-110 transform duration-300 mt-4 py-3 px-4 text-xl font-medium bg-linear-to-r from-white to-pink-200 border-2 rounded-4xl shadow-lg">
-          Faça sua encomenda!
-        </button>
+        <Link to="/catalogo">
+          <button className="cursor-pointer hover:scale-110 transform duration-300 mt-4 py-3 px-4 text-xl font-medium bg-linear-to-r from-white to-pink-200 border-2 rounded-4xl shadow-lg">
+            Faça sua encomenda!
+          </button>
+        </Link>
       </div>
     </section>
   );

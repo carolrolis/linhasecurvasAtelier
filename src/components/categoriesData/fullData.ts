@@ -1,4 +1,4 @@
-import BercoData from "./bercosData";
+import BercosData from "./bercosData";
 import PortaDocData from "./portaDocData";
 import BonecasData from "./bonecasData";
 import KitsMaternidadeData from "./kitsMaternidadeData";
@@ -16,8 +16,8 @@ import BastidoresData from "./bastidoresData";
 import CapasMaquinaData from "./capasMaquinaData";
 import LarData from "./larData";
 
-export const categoriesData = [
-  BercoData,
+const categoriesData = [
+  BercosData,
   PortaDocData,
   BonecasData,
   KitsMaternidadeData,
@@ -36,13 +36,4 @@ export const categoriesData = [
   LarData
 ];
 
-export const carouselCategoriesData = [
-  BercoData,
-  PortaDocData,
-  BonecasData,
-  KitsMaternidadeData,
-  BolsasData,
-  KitsBatismoData,
-  ToalhasData,
-  FraldasData,
-];
+export default categoriesData
