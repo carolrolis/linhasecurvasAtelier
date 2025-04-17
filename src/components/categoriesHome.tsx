@@ -19,7 +19,7 @@ const HomeCategories: React.FC = () => {
       <div className="w-9/10 blur-carousel">
         <HomeCarousel>
           {categories.map((category) => (
-            <Link to={`catalogo/${category.id}`}>
+            <Link to={category.id}>
               <div
                 key={category.id}
                 className="flex flex-col items-center select-none"
