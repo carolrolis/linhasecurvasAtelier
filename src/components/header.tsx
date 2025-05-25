@@ -55,12 +55,21 @@ const Header: React.FC = () => {
   }, [openMenu]);
 
   return (
-    <header className="w-screen max-h-fit bg-[rgba(255,255,255,60%)] hover:bg-white active:bg-white focus:bg-white transform duration-300 z-2 fixed top-0 left-0">
+    <header
+      className="w-screen max-h-fit bg-[rgba(255,255,255,60%)] hover:bg-white active:bg-white focus:bg-white
+    z-2 fixed top-0 left-0 transform duration-300"
+    >
       <nav className="w-full flex items-center justify-between">
-        <div className="max-w-2/11 min-w-50 cursor-pointer px-4 py-2">
-          <img alt="Linhas & Curvas" src={logo} />
-        </div>
+        <Link to="/">
+          <div
+            id="logo"
+            className="max-w-2/11 min-w-50 2xl:min-w-80 cursor-pointer px-4 py-2"
+          >
+            <img alt="Linhas & Curvas" src={logo} />
+          </div>
+        </Link>
         <div
+          id="mobile-menu"
           ref={menuButtonRef}
           className="mobile-menu-icon hidden mr-5"
           onClick={handleClick}
@@ -69,27 +78,27 @@ const Header: React.FC = () => {
         </div>
         <ul
           ref={menuRef}
-          className={`flex items-center text-xl px-10 gap-30 ${
+          className={`flex items-center text-xl px-10 gap-30 2xl:text-3xl ${
             openMenu ? "MobileMenu active" : "MobileMenu"
           }
           `}
         >
-          {NavItems.map((Item, index) => {
+          {NavItems.map((Item) => {
             if (Item.className.includes("searchbar")) {
               return (
-                <li key={index} className={Item.className}>
+                <li className={Item.className}>
                   <input
                     title="Pesquisar"
                     type="text"
                     placeholder="Pesquisar"
-                    className="searchbar-input placeholder:text-darkPink focus:placeholder:text-lightPink"
+                    className="searchbar-input placeholder:text-darkPink focus:placeholder:text-lightPink 2xl:text-2xl"
                   />
                 </li>
               );
             }
 
             return (
-              <li key={index} className={Item.className}>
+              <li className={Item.className}>
                 <Link to={Item.navigate!}>{Item.title}</Link>
               </li>
             );

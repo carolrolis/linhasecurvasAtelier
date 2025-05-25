@@ -1,5 +1,5 @@
 import BercosData from "./bercosData";
-import PortaDocData from "./portaDocData";
+import PortaDocData from "./portaDocumentosData";
 import BonecasData from "./bonecasData";
 import KitsMaternidadeData from "./kitsMaternidadeData";
 import BolsasData from "./bolsasData";

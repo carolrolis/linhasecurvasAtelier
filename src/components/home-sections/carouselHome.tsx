@@ -5,32 +5,30 @@ import React, {
   ReactNode,
   MouseEvent,
 } from "react";
+import RightArrowIcon from "../svgs/rightArrow";
+import LeftArrowIcon from "../svgs/leftArrow";
 
 interface HomeCarouselProps {
   children: ReactNode;
   allowDrag?: boolean;
+  oneAtATime?: boolean;
 }
 
 const HomeCarousel: React.FC<HomeCarouselProps> = ({
   children,
   allowDrag = true,
+  oneAtATime = false,
 }) => {
-  // Carousel container - initially null.
-  const containerRef = useRef<HTMLDivElement>(null);
-  // Check if the carousel is currently being dragged - initially false
-  const isDraggingRef = useRef<boolean>(false);
-  // See if whether the user clicked or dragged - initially false
-  const draggedRef = useRef<boolean>(false);
-  // Initial mouse and scroll positions when dragging starts - initially 0
-  const dragStartPosition = useRef({ x: 0, scrollLeft: 0 });
-  // State to show a arrow only when there is anything left to be scrolled.
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null); // Carousel container - initially null
+  const isDraggingRef = useRef<boolean>(false); // Check if the carousel is currently being dragged - initially false
+  const draggedRef = useRef<boolean>(false); // See if whether the user clicked or dragged - initially false
+  const dragStartPosition = useRef({ x: 0, scrollLeft: 0 }); // Initial mouse and scroll positions when dragging starts - initially 0
+  const [showLeftArrow, setShowLeftArrow] = useState(false); // State to show a arrow only when there is anything left to be scrolled
   const [showRightArrow, setShowRightArrow] = useState(false);
 
   const handleScroll = () => {
     if (!containerRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-    console.log(scrollLeft);
 
     setShowLeftArrow(scrollLeft > 0);
     setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 1);
@@ -42,7 +40,7 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
     draggedRef.current = false;
 
     if (containerRef.current) {
-      // Stores initial mouse position(x, y) and the container rolling(scrollLeft).
+      // Stores initial mouse position(x, y) and the container rolling(scrollLeft)
       dragStartPosition.current = {
         x: e.pageX,
         scrollLeft: containerRef.current.scrollLeft,
@@ -63,7 +61,7 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
 
     containerRef.current.scrollBy({
       // Adjustment effect
-      left: dx > 0 ? -150 : 150,
+      left: dx > 0 ? -300 : 300,
       behavior: "smooth",
     });
 
@@ -97,8 +95,6 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         left: -containerRef.current.clientWidth * 0.5,
         behavior: "smooth",
       });
-
-      console.log(containerRef.current);
     }
   };
 
@@ -113,10 +109,12 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
   };
 
   return (
-    <div className="relative w-full px-2">
+    <div className={`${oneAtATime ? "w-85" : "w-full "} relative px-2 mx-10`}>
       <div
         ref={containerRef}
-        className={"w-full overflow-x-auto no-scrollbar flex gap-4 py-6 px-4"}
+        className={`${
+          oneAtATime ? "w-70 gap-0" : "w-full gap-4 px-4"
+        } overflow-x-auto no-scrollbar flex py-6 snap-x snap-mandatory`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -132,9 +130,13 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
 
           return (
             <div
-              className={
-                "flex-shrink-0 w-62 scroll-snap-center bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer border-3 border-white hover:scale-105 hover:border-gold active:scale-105 active:border-gold transition-transform duration-300"
-              }
+              className={`flex-shrink-0 ${
+                oneAtATime
+                  ? "w-70"
+                  : "w-62 2xl:min-w-80 shadow-lg hover:scale-105 hover:border-gold active:scale-105 active:border-gold cursor-pointer border-3 border-white"
+              } 
+              scroll-snap-center bg-white rounded-lg overflow-hidden 
+              transition-transform duration-300`}
               onClickCapture={(e) => {
                 if (draggedRef.current) {
                   e.stopPropagation();
@@ -152,28 +154,10 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         <button
           onClick={handlePrevious}
           title="Left"
-          className="group z-2 hidden sm:block cursor-pointer absolute left-2 top-1/2 transform -translate-y-1/2 transition-transform duration-300"
+          className="group z-2 hidden sm:block cursor-pointer absolute left-2 top-1/2
+          transform -translate-y-1/2 transition-transform duration-300"
         >
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="group-hover:fill-gray-200"
-              d="M9 13L6 10ZM6 10L9 7ZM6 10H14ZM1 10C1 14.9706 5.0294 19 10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.0294 1 1 5.02944 1 10Z"
-              fill="#FAF3E5"
-            />
-            <path
-              d="M9 13L6 10M6 10L9 7M6 10H14M1 10C1 14.9706 5.0294 19 10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.0294 1 1 5.02944 1 10Z"
-              stroke="#2C3E50"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <LeftArrowIcon />
         </button>
       )}
 
@@ -181,28 +165,10 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         <button
           onClick={handleNext}
           title="Right"
-          className="group z-2 hidden sm:block cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2 transition-transform duration-300"
+          className="group z-2 hidden sm:block cursor-pointer absolute right-2 top-1/2
+          transform -translate-y-1/2 transition-transform duration-300"
         >
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="group-hover:fill-gray-200"
-              d="M11 13L14 10ZM14 10L11 7ZM14 10H6ZM19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z"
-              fill="#FAF3E5"
-            />
-            <path
-              d="M11 13L14 10M14 10L11 7M14 10H6M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z"
-              stroke="#2C3E50"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <RightArrowIcon />
         </button>
       )}
     </div>

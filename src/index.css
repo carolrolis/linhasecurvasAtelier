@@ -65,11 +65,15 @@
   --font-baby: "Oooh Baby", cursive;
   --color-bege: #faf3e5;
   --color-gold: #f4d06f;
-  --color-lightPink: #df789c;
+  --color-lightPink: #bd6a87;
   --color-transparentPink: rgba(223, 120, 256, 50%);
   --color-darkPink: #9c125c;
   --color-lightBlue: #a6c5e5;
   --color-darkBlue: #2c3e50;
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
