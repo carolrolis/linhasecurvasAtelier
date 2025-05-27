@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import HomeCategories from "../components/home-sections/categoriesHome";
+import HomeCategories from "../components/home-sections/categories/categoriesHome";
 import Welcome from "../components/home-sections/welcome";
 
 const Home: React.FC = () => {

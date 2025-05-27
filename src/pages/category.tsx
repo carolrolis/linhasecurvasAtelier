@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/header";
-import HomeCarousel from "../components/home-sections/carouselHome";
+import HomeCarousel from "../components/home-sections/categories/carouselHome";
 
 interface CategoryData {
   id: string;
@@ -12,7 +12,6 @@ interface CategoryData {
 export default function Category() {
   const [category, setCategory] = useState<CategoryData | null>(null);
   const params = useParams();
-  const oneAtATime = true;
 
   useEffect(() => {
     if (params.categoryID) {

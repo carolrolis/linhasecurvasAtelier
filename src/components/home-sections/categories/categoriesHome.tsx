@@ -1,5 +1,5 @@
-import carouselData from "../categoriesData/carouselData";
-import VerMaisIcon from "../svgs/verMais";
+import carouselData from "../../categoriesData/carouselData";
+import VerMaisIcon from "../../svgs/verMais";
 import HomeCarousel from "./carouselHome";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,7 +11,6 @@ export const categories = carouselData.map((item) => ({
 
 const HomeCategories: React.FC = () => {
   const navigate = useNavigate();
-  const oneAtATime = true;
 
   return (
     <div

@@ -5,8 +5,8 @@ import React, {
   ReactNode,
   MouseEvent,
 } from "react";
-import RightArrowIcon from "../svgs/rightArrow";
-import LeftArrowIcon from "../svgs/leftArrow";
+import RightArrowIcon from "../../svgs/rightArrow";
+import LeftArrowIcon from "../../svgs/leftArrow";
 
 interface HomeCarouselProps {
   children: ReactNode;
