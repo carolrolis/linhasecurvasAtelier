@@ -8,7 +8,7 @@ const Home = lazy(() => import("./pages/home"));
 const Sobre = lazy(() => import("./pages/sobre"));
 const Category = lazy(() => import("./pages/categoria"));
 const Catalogo = lazy(() => import("./pages/catalogo"));
-const NotFound = lazy(() => import("./pages/notFound"));
+// const NotFound = lazy(() => import("./pages/notFound"));
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,7 +46,7 @@ export default function App() {
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Suspense>
       </div>
