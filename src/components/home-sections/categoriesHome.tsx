@@ -1,6 +1,6 @@
-import carouselData from "../../categoriesData/carouselData";
-import VerMaisIcon from "../../svgs/verMais";
-import HomeCarousel from "./carouselHome";
+import carouselData from "../categoriesData/carouselData";
+import VerMaisIcon from "../svgs/verMais";
+import HomeCarousel from "../carousel";
 import { Link, useNavigate } from "react-router-dom";
 
 export const categories = carouselData.map((item) => ({

@@ -10,9 +10,9 @@ import LarImage from "../../assets/images/lar/cozinha1.png";
 
 const carouselData = [
   { id: "bercos", name: "Berços", carouselImage: BercosImage },
-  { id: "porta-documentos", name: "Porta Documentos", carouselImage: PortaDocImage },
+  { id: "portaDocumentos", name: "Porta Documentos", carouselImage: PortaDocImage },
   { id: "bonecas", name: "Bonecas", carouselImage: BonecasImage },
-  { id: "kits-maternidade", name: "Kits Maternidade", carouselImage: KitsMaternidadeImage },
+  { id: "kitsMaternidade", name: "Kits Maternidade", carouselImage: KitsMaternidadeImage },
   { id: "bolsas", name: "Bolsas", carouselImage: BolsasImage },
   { id: "toalhas", name: "Toalhas", carouselImage: ToalhasImage },
   { id: "fraldas", name: "Fraldas", carouselImage: FraldasImage },

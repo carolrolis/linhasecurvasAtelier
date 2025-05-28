@@ -5,8 +5,8 @@ import React, {
   ReactNode,
   MouseEvent,
 } from "react";
-import RightArrowIcon from "../../svgs/rightArrow";
-import LeftArrowIcon from "../../svgs/leftArrow";
+import RightArrowIcon from "./svgs/rightArrow";
+import LeftArrowIcon from "./svgs/leftArrow";
 
 interface HomeCarouselProps {
   children: ReactNode;
@@ -58,7 +58,6 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
     }
 
     containerRef.current.scrollLeft = dragStartPosition.current.scrollLeft - dx;
-
     containerRef.current.scrollBy({
       // Adjustment effect
       left: dx > 0 ? -300 : 300,
@@ -91,25 +90,39 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
   // Left arrow click.
   const handlePrevious = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({
-        left: -containerRef.current.clientWidth * 0.5,
-        behavior: "smooth",
-      });
+      if (oneAtATime) {
+        containerRef.current.scrollBy({
+          left: -containerRef.current.clientWidth,
+          behavior: "smooth",
+        });
+      } else {
+        containerRef.current.scrollBy({
+          left: -containerRef.current.clientWidth,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
   // Right arrow click.
   const handleNext = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({
-        left: containerRef.current.clientWidth * 0.5,
-        behavior: "smooth",
-      });
+      if (oneAtATime) {
+        containerRef.current.scrollBy({
+          left: containerRef.current.clientWidth,
+          behavior: "smooth",
+        });
+      } else {
+        containerRef.current.scrollBy({
+          left: containerRef.current.clientWidth,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
   return (
-    <div className={`${oneAtATime ? "w-85" : "w-full "} relative px-2 mx-10`}>
+    <div className={`${oneAtATime ? "w-70" : "w-full px-2"} relative`}>
       <div
         ref={containerRef}
         className={`${
@@ -154,7 +167,7 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         <button
           onClick={handlePrevious}
           title="Left"
-          className="group z-2 hidden sm:block cursor-pointer absolute left-2 top-1/2
+          className="group z-2 cursor-pointer absolute left-2 top-1/2
           transform -translate-y-1/2 transition-transform duration-300"
         >
           <LeftArrowIcon />
@@ -165,7 +178,7 @@ const HomeCarousel: React.FC<HomeCarouselProps> = ({
         <button
           onClick={handleNext}
           title="Right"
-          className="group z-2 hidden sm:block cursor-pointer absolute right-2 top-1/2
+          className="group z-2 cursor-pointer absolute right-2 top-1/2
           transform -translate-y-1/2 transition-transform duration-300"
         >
           <RightArrowIcon />
