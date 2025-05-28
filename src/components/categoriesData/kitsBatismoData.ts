@@ -1,14 +1,14 @@
-import KitsBatismo1 from "../../assets/images/kitsBatismo/kitBatismo1.png";
-import KitsBatismo2 from "../../assets/images/kitsBatismo/kitBatismo2.png";
-import KitsBatismo3 from "../../assets/images/kitsBatismo/kitBatismo3.png";
-import KitsBatismo4 from "../../assets/images/kitsBatismo/kitBatismo4.png";
-import KitsBatismo5 from "../../assets/images/kitsBatismo/kitBatismo5.png";
-import KitsBatismo6 from "../../assets/images/kitsBatismo/kitBatismo6.png";
-import KitsBatismo7 from "../../assets/images/kitsBatismo/kitbatismo7.png";
-import KitsBatismo8 from "../../assets/images/kitsBatismo/kitbatismo8.png";
-import KitsBatismo9 from "../../assets/images/kitsBatismo/kitbatismo9.png";
-import KitsBatismo10 from "../../assets/images/kitsBatismo/kitbatismo10.png";
-import KitsBatismo11 from "../../assets/images/kitsBatismo/kitbatismo11.png";
+import KitsBatismo1 from "../../assets/images/kitsbatismo/kitbatismo1.png";
+import KitsBatismo2 from "../../assets/images/kitsbatismo/kitbatismo2.png";
+import KitsBatismo3 from "../../assets/images/kitsbatismo/kitbatismo3.png";
+import KitsBatismo4 from "../../assets/images/kitsbatismo/kitbatismo4.png";
+import KitsBatismo5 from "../../assets/images/kitsbatismo/kitbatismo5.png";
+import KitsBatismo6 from "../../assets/images/kitsbatismo/kitbatismo6.png";
+import KitsBatismo7 from "../../assets/images/kitsbatismo/kitbatismo7.png";
+import KitsBatismo8 from "../../assets/images/kitsbatismo/kitbatismo8.png";
+import KitsBatismo9 from "../../assets/images/kitsbatismo/kitbatismo9.png";
+import KitsBatismo10 from "../../assets/images/kitsbatismo/kitbatismo10.png";
+import KitsBatismo11 from "../../assets/images/kitsbatismo/kitbatismo11.png";
 
 interface KitsBatismoProps {
   id: string;
